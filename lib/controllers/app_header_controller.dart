@@ -17,7 +17,7 @@ class HeaderController extends GetxController {
   final storage = GetStorage();
 
   final clientprofiledb = FirebaseFirestore.instance.collection("Admin");
-  List<String> headerOptions = ['changePassword', 'logout'];
+  List<String> headerOptions = ['Change Password', 'Logout'];
 
   var obscureOldPassword = true.obs;
   var obscureNewPassword = true.obs;

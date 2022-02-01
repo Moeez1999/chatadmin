@@ -6,10 +6,13 @@ import 'package:web_admin_chat_app/bindings/add_signal_binding.dart';
 import 'package:web_admin_chat_app/bindings/dashboard_bindings.dart';
 import 'package:web_admin_chat_app/bindings/login_bindings.dart';
 import 'package:web_admin_chat_app/bindings/side_menu_bindings.dart';
+import 'package:web_admin_chat_app/bindings/update_account_bindings.dart';
 import 'package:web_admin_chat_app/routes/app_routes.dart';
 import 'package:web_admin_chat_app/view/add_signals.dart';
 import 'package:web_admin_chat_app/view/dashboard.dart';
 import 'package:web_admin_chat_app/view/login.dart';
+import 'package:web_admin_chat_app/view/update_account.dart';
+import 'package:web_admin_chat_app/widgets/app_side_menu.dart';
 
 class AppPages {
   static const initial = Routes.loginRoutes;
@@ -25,7 +28,7 @@ class AppPages {
     // < -------------------- SideBar Page ----------------->
     GetPage(
       name: Routes.sideBarRoutes,
-      page: () => const AddSignals(),
+      page: () => const SideBar (),
       binding: SidemenuBinding()
     ),
 
@@ -42,6 +45,13 @@ class AppPages {
       name: Routes.addsignalRoutes,
       page: () => const AddSignals(),
       binding: AddSignalBinding()
+    ),
+
+       // < -------------------- Update Account Page ----------------->
+    GetPage(
+      name: Routes.updateaccountRoutes,
+      page: () =>  UpdateAccount(),
+      binding: UpdateAccountBinding()
     ),
 
   ];

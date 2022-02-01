@@ -7,7 +7,9 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:web_admin_chat_app/controllers/sidemenu_controller.dart';
 import 'package:web_admin_chat_app/view/add_signals.dart';
 import 'package:web_admin_chat_app/view/dashboard.dart';
-import 'package:web_admin_chat_app/view/login.dart';
+import 'package:web_admin_chat_app/view/update_account.dart';
+import 'package:web_admin_chat_app/view/users_data.dart';
+
 
 
 
@@ -28,20 +30,7 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
       builder: (_) {
         return Scaffold(
           backgroundColor: Colors.white,
-          body: _.isLoading
-              ? Center(
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    child: Center(
-                      child: LoadingAnimationWidget.inkDrop(
-                        color: Colors.red,
-                        size: 50,
-                      ),
-                    ),
-                  ),
-                )
-              : Row(
+          body: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
@@ -65,15 +54,15 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                         style: SideMenuStyle(
                             openSideMenuWidth:
                                 MediaQuery.of(context).size.width * 0.17,
-                            unselectedIconColor: Color(0XFF4F8484),
+                            unselectedIconColor:  Colors.red,
                             compactSideMenuWidth: width,
                             displayMode: SideMenuDisplayMode.open,
                             hoverColor: Colors.grey,
-                            selectedColor: Color(0xffEDF1F4),
+                            selectedColor: const Color(0xffEDF1F4),
                             selectedTitleTextStyle:
                                 TextStyle(color: Colors.black, fontSize: 15),
                             unselectedTitleTextStyle: TextStyle(
-                                fontSize: 15, color: Color(0XFF4F8484)),
+                                fontSize: 15, color:Colors.red),
                             selectedIconColor: Colors.black,
                             backgroundColor: Colors.white,
                             iconSize: 15),
@@ -83,7 +72,7 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 10),
                               child: Image.asset(
-                                'assets/images/app_logo.png',
+                                'assets/images/side_menu_logo.png',
                                 height: 100,
                                 width: 250,
                               ),
@@ -107,6 +96,22 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                                   },
                                   icon: FontAwesomeIcons.user,
                                 ),
+                                 SideMenuItem(
+                                  priority: 2,
+                                  title: 'Update Account',
+                                  onTap: () {
+                                    _.page.jumpToPage(2);
+                                  },
+                                  icon: FontAwesomeIcons.user,
+                                ),
+                                 SideMenuItem(
+                                  priority: 3,
+                                  title: 'Users',
+                                  onTap: () {
+                                    _.page.jumpToPage(3);
+                                  },
+                                  icon: FontAwesomeIcons.columns,
+                                ),
                                
                               ]
                            
@@ -120,9 +125,11 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                         physics: const NeverScrollableScrollPhysics(),
                         allowImplicitScrolling: false,
                         controller: _.page,
-                        children:const [
-                           DashBoard(),
-                          AddSignals()
+                        children: [
+                           const DashBoard(),
+                          const AddSignals(),
+                          UpdateAccount(),
+                          NonCorporateAccount()
                         ],
                       ),
                     ),

@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import 'package:web_admin_chat_app/apis/api_data.dart';
 import 'package:web_admin_chat_app/routes/app_routes.dart';
 import 'package:web_admin_chat_app/widgets/app_snackbar.dart';
 
-class LoginController extends GetxController {
+class LogInController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
@@ -92,7 +93,7 @@ class LoginController extends GetxController {
     try {
       ApiData.firebaseAuth
           .createUserWithEmailAndPassword(
-              email: 'test@gmail.com', password: '123456789')
+              email: 'wajahatali333460@gmail.com', password: '123456')
           .then((result) async {
         var user = result.user!;
         await user.sendEmailVerification();
@@ -100,7 +101,7 @@ class LoginController extends GetxController {
           'uid': result.user!.uid,
           'firstName': 'Moeez',
           'lastName': 'Suleman',
-          'email': 'test@gmail.com',
+          'email': 'wajahatali333460@gmail.com',
           'atrole': 'admin',
           'role': 'SuperAdmin',
           'createdAt': Timestamp.now(),

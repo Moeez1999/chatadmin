@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:web_admin_chat_app/controllers/add_signals_controller.dart';
-import 'package:web_admin_chat_app/controllers/dashboard_controller.dart';
-import 'package:web_admin_chat_app/controllers/login_controller.dart';
+
 
 class AddSignalBinding extends Bindings {
   @override

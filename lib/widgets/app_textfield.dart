@@ -104,7 +104,7 @@ class _CommonTextFormField1State extends State<CommonTextFormField1> {
         hintText: widget.hintText,
         labelText: widget.labelText,
         hintStyle: const TextStyle(color: Color(0xFF797a7a)),
-        labelStyle: const TextStyle(color: Color(0xff83b7b8)),
+        labelStyle: const TextStyle(color: Color(0xff808080)),
         errorStyle: const TextStyle(color: Colors.red),
         suffixIcon: widget.showSuffix
             ? InkWell(
@@ -117,12 +117,12 @@ class _CommonTextFormField1State extends State<CommonTextFormField1> {
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: const BorderSide(color: Color(0xff83b7b8)),
+          borderSide: const BorderSide(color: Color(0xff808080)),
           gapPadding: 10,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
-          borderSide: const BorderSide(color: Color(0xff83b7b8)),
+          borderSide: const BorderSide(color: Color(0xff808080)),
           gapPadding: 10,
         ),
         errorBorder: OutlineInputBorder(
