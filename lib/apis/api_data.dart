@@ -6,6 +6,8 @@ class ApiData {
   
   static CollectionReference admin = FirebaseFirestore.instance.collection("Admin");
   static CollectionReference users = FirebaseFirestore.instance.collection("Users");
+  static CollectionReference title = FirebaseFirestore.instance.collection("Title");
+  static CollectionReference signals = FirebaseFirestore.instance.collection("Signals");
  
   
 }

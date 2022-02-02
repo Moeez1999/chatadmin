@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:web_admin_chat_app/controllers/sidemenu_controller.dart';
 import 'package:web_admin_chat_app/view/add_signals.dart';
+import 'package:web_admin_chat_app/view/add_signals_images.dart';
+import 'package:web_admin_chat_app/view/admin_data.dart';
 import 'package:web_admin_chat_app/view/dashboard.dart';
 import 'package:web_admin_chat_app/view/update_account.dart';
 import 'package:web_admin_chat_app/view/users_data.dart';
@@ -112,6 +114,22 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                                   },
                                   icon: FontAwesomeIcons.columns,
                                 ),
+                                  SideMenuItem(
+                                  priority: 4,
+                                  title: 'Admin',
+                                  onTap: () {
+                                    _.page.jumpToPage(4);
+                                  },
+                                  icon: FontAwesomeIcons.columns,
+                                ),
+                                SideMenuItem(
+                                  priority: 5,
+                                  title: 'Signal Images',
+                                  onTap: () {
+                                    _.page.jumpToPage(5);
+                                  },
+                                  icon: FontAwesomeIcons.columns,
+                                ),
                                
                               ]
                            
@@ -129,7 +147,9 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                            const DashBoard(),
                           const AddSignals(),
                           UpdateAccount(),
-                          NonCorporateAccount()
+                          NonCorporateAccount(),
+                          AdminData(),
+                           AddSignalsImages(),
                         ],
                       ),
                     ),

@@ -76,6 +76,15 @@ class DashBoard extends StatelessWidget {
                             mainText: '${_.adminList.length}',
                             subText: 'Total Admin',
                           ),
+
+
+                           CardTile(
+                            cardTitle: 'Signal Information',
+                            icon: Icons.account_balance_outlined,
+                            iconBgColor: Colors.indigo,
+                            mainText: '${_.titleList.length}',
+                            subText: 'Total Singal Information',
+                          ),
                           // statsContainer(
                           //     context, 'Total Non-Corporate Accounts', '${_.nonCorporatelist.length}'),
                          

@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:web_admin_chat_app/apis/api_data.dart';
 import 'package:web_admin_chat_app/widgets/app_snackbar.dart';
 
-class NonCorporateAccountController extends GetxController {
+class AdminDataController extends GetxController {
   bool isLoading = true;
-  List userlist = [];
+  List adminlist = [];
   List searchlist = [];
 
   TextEditingController search = TextEditingController();
@@ -33,14 +33,14 @@ class NonCorporateAccountController extends GetxController {
 
   searchFunction(String v) {
     searchlist = [];
-    userlist.forEach((e) {
+    adminlist.forEach((e) {
       if (e['email'].toString().toLowerCase().contains(v.toLowerCase())) {
         searchlist.add(e);
       }
-       else if (e['username'].toString().toLowerCase().contains(v.toLowerCase())) {
+       else if (e['firstName'].toString().toLowerCase().contains(v.toLowerCase())) {
         searchlist.add(e);
       }
-       else if (e['id'].toString().toLowerCase().contains(v.toLowerCase())) {
+       else if (e['uid'].toString().toLowerCase().contains(v.toLowerCase())) {
         searchlist.add(e);
       }
       
@@ -51,10 +51,10 @@ class NonCorporateAccountController extends GetxController {
   Future<void> getData() async {
     try {
       searchlist.clear();
-      userlist.clear();
-      var data = await ApiData.users.get();
+      adminlist.clear();
+      var data = await ApiData.admin.get();
       data.docs.forEach((v) {
-        userlist.add(v.data());
+        adminlist.add(v.data());
       });
       update();
 
@@ -66,9 +66,9 @@ class NonCorporateAccountController extends GetxController {
 
 
   Future<void> updateuser(String id) async {
-    await ApiData.users
+    await ApiData.admin
         .doc(id)
-        .update({'username': firstname.text, 'email': email.text}).then(
+        .update({'firstName': firstname.text, 'email': email.text}).then(
             (value) async {
           isLoading = true;
           update();
@@ -82,7 +82,7 @@ class NonCorporateAccountController extends GetxController {
 
 
   void deleteuser(String id) {
-    ApiData.users.doc(id).delete().then((value) async {
+    ApiData.admin.doc(id).delete().then((value) async {
       isLoading = true;
       update();
       await getData();

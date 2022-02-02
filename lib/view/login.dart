@@ -21,8 +21,9 @@ class Login extends StatelessWidget {
 
 
 
-    return  Scaffold(
-      body: GetBuilder<LogInController>(builder: (_){
+    return GetBuilder<LogInController>(
+      init: LogInController(),
+      builder: (_){
         return SafeArea(
             child: Scaffold(
               backgroundColor: const Color(0xffE5E5E5),
@@ -52,23 +53,8 @@ class Login extends StatelessWidget {
                             key: _.formkey,
                             child: Column(
                               children: [
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  'WELCOME TO',
-                                  style: GoogleFonts.mochiyPopOne(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black),
-                                ),
-                                Text(
-                                  'ADMIN PANEL',
-                                  style: GoogleFonts.mochiyPopOne(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.black),
-                                ),
+                               
+                               
                                 GestureDetector(
                                   onLongPress: () {
                                     _.createAccount();
@@ -84,6 +70,14 @@ class Login extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                 Text(
+                                  'WELCOME TO Admin Panel',
+                                  style: GoogleFonts.mochiyPopOne(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black),
+                                ),
+                               
                                 Text(
                                   'Log In',
                                   style: GoogleFonts.mochiyPopOne(
@@ -207,7 +201,6 @@ class Login extends StatelessWidget {
               ),
             ),
           );
-      },)
-    );
+      },);
   }
 }

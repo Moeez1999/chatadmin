@@ -87,7 +87,7 @@ class HeaderController extends GetxController {
     await FirebaseAuth.instance.signOut().then((value) async {
       await storage.remove('username');
       await storage.remove('password');
-      Get.offAll(() => Login());
+      Get.offAll(() => const Login());
     });
   }
 }

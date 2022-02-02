@@ -1,24 +1,26 @@
 // ignore_for_file: prefer_is_empty
 
+
 import 'package:data_table_2/paginated_data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:web_admin_chat_app/controllers/users_data_controller.dart';
+import 'package:web_admin_chat_app/controllers/admin_data_controller.dart';
+
 import 'package:web_admin_chat_app/utils/app_colors.dart';
 import 'package:web_admin_chat_app/view/app_header.dart';
-import 'package:web_admin_chat_app/widgets/app_buttons.dart';
+
 import 'package:web_admin_chat_app/widgets/app_textfield.dart';
 
-class NonCorporateAccount extends StatelessWidget {
+class AdminData extends StatelessWidget {
  
 
   @override
   Widget build(BuildContext context) {
-   
-    return GetBuilder<NonCorporateAccountController>(
-      init: NonCorporateAccountController(),
+  
+    return GetBuilder<AdminDataController>(
+      init: AdminDataController(),
       builder: (_) {
         return Scaffold(
           backgroundColor: AppColors.backgroundcolor,
@@ -26,11 +28,11 @@ class NonCorporateAccount extends StatelessWidget {
             children: [
               Header(),
                Row(
-                            children: const[
-                              Padding(
+                            children:const [
+                               Padding(
                                 padding: EdgeInsets.only(right: 20),
                                 child: Text(
-                                  'Users List',
+                                  'Admin List',
                                   maxLines: 1,
                                   style: TextStyle(
                                       color: Colors.red,
@@ -50,7 +52,7 @@ class NonCorporateAccount extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  
+                    
                     const Spacer(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.2,
@@ -62,7 +64,7 @@ class NonCorporateAccount extends StatelessWidget {
                     const SizedBox(
                       width: 10.0,
                     ),
-                   
+                    
                   ],
                 ),
               ),
@@ -89,8 +91,8 @@ class NonCorporateAccount extends StatelessWidget {
                             sortAscending: true,
                             dividerThickness: 2,
                             dataRowHeight: 60,
-                            dataRowColor: MaterialStateColor.resolveWith(
-                                (states) => Colors.white),
+                            // dataRowColor: MaterialStateColor.resolveWith(
+                            //     (states) => Colors.white),
                             columns: const <DataColumn>[
                               DataColumn2(
                                 label: Text('Name',
@@ -113,7 +115,7 @@ class NonCorporateAccount extends StatelessWidget {
                             ],
                             rows: List.generate(
                                 _.searchlist.length == 0
-                                    ? _.userlist.length
+                                    ? _.adminlist.length
                                     : _.searchlist.length, (index) {
                               return DataRow(cells: [
                                 DataCell(
@@ -125,11 +127,11 @@ class NonCorporateAccount extends StatelessWidget {
                                       ),
                                       _.searchlist.length == 0
                                           ? Text(
-                                              '${_.userlist[index]['username']}',
+                                              '${_.adminlist[index]['firstName']}',
                                               //style: titleStyle,
                                             )
                                           : Text(
-                                              '${_.searchlist[index]['username']} ',
+                                              '${_.searchlist[index]['firstName']} ',
                                               //style: titleStyle,
                                             )
                                     ],
@@ -139,7 +141,7 @@ class NonCorporateAccount extends StatelessWidget {
                                   Center(
                                     child: _.searchlist.length == 0
                                         ? Text(
-                                            '${_.userlist[index]['email']}',
+                                            '${_.adminlist[index]['email']}',
                                             //style: titleStyle,
                                           )
                                         : Text(
@@ -171,10 +173,10 @@ class NonCorporateAccount extends StatelessWidget {
                                           onPressed: () {
                                             _.searchlist.length == 0
                                                 ? _.deleteuser(
-                                                    _.userlist[index]
-                                                        ['id'])
+                                                    _.adminlist[index]
+                                                        ['uid'])
                                                 : _.deleteuser(
-                                                    _.searchlist[index]['id']);
+                                                    _.searchlist[index]['uid']);
                                           },
                                         ),
                                       ),
@@ -194,72 +196,5 @@ class NonCorporateAccount extends StatelessWidget {
     );
   }
 
-  showAlertBox(NonCorporateAccountController _, context , firstname , email , docid) {
-    _.firstname.text = firstname;
-    _.email.text = email;
-    _.update();
-    return showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text(
-          "Update Data",
-          style: TextStyle(),
-        ),
-        content: SizedBox(
-          height: 250,
-          width: Get.width / 2.5,
-          child: Column(
-            children: [
-              SizedBox(
-                width: Get.width / 2.6,
-                child: CommonTextFormField(
-                  _.firstname,
-                  'First Name',
-                  'First Name',
-                  false,
-                  TextInputType.name,
-                  1,
-                      (e) {}, (){}
-                ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              SizedBox(
-                width: Get.width / 2.6,
-                child: CommonTextFormField(
-                  _.email,
-                  'Last Name',
-                  'Last Name',
-                  false,
-                  TextInputType.name,
-                  1,
-                      (e) {}, (){}
-                ),
-              ),
-              const Spacer(),
-              CircularButtons(
-                text: "Update Data",
-                width: 150,
-                height: 40,
-                textStyle: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
-                onPressed: () {
-                  Get.back();
-                  _.updateuser(docid);
-                },
-                backgroundColor: AppColors.bluecolor,
-                textColor: Colors.white,
-                borderColor: AppColors.bluecolor,
-              ),
-            ],
-          ),
-          // child: ,
-        ),
-      ),
-    );
-  }
+ 
 }

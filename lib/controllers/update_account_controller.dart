@@ -131,33 +131,7 @@ class UpdateAccountController extends GetxController {
 
   static Future<List<int>?> checkFileSize(
       int size, BuildContext context, Uint8List file) async {
-    // List<int>? data;
-    // if(size >= maxFileSize3Mb){
-    //   alert.CustomAlertDialog.showAlertDialog('File Size Exceeded', 'File Should be less then 3 MB.', context);
-    // }else if(size>maxAllowedFileSize){
-    //   var checkCompress = await alert.CustomAlertDialog.showAlertDialog('Compress File', 'File needs to be compressed to upload.\nDo you want to compress file?', context,action: [
-    //     TextButton(
-    //         onPressed: (){
-    //           Navigator.of(context).pop(true);
-    //         }, child: Text('Compress')),
-    //     TextButton(
-    //         onPressed: (){
-    //           Navigator.of(context, rootNavigator: true).pop(false);
-    //         }, child: Text('Cancel'))
-    //   ]);
-    //
-    //   if(checkCompress!){
-    //     await Future.delayed(Duration(milliseconds: 200));
-    //     entry = showOverlay(context);
-    //     await Future.delayed(Duration(milliseconds: 20));
-    //     data = await _compressImageWorker(file: file);
-    //     entry!.remove();
-    //     entry = null;
-    //   }
-    // } else {
-    //   data = file;
-    // }
-    // return data;
+    
     return Future.value(file);
   }
 
@@ -184,4 +158,7 @@ class UpdateAccountController extends GetxController {
       // WaitDialog.progressDialog(false, context);
     });
   }
+
+
+  
 }

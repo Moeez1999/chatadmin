@@ -43,7 +43,7 @@ class UpdateAccount extends StatelessWidget {
                                       MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
+                                      padding: const EdgeInsets.symmetric(
                                           vertical: 35),
                                       child: Image.asset(
                                           "assets/images/side_menu_logo.png"),
@@ -52,7 +52,7 @@ class UpdateAccount extends StatelessWidget {
                                         style: GoogleFonts.mochiyPopOne(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold)),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Row(
