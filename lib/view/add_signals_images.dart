@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:web_admin_chat_app/controllers/add_signals_images_controller.dart';
 import 'package:web_admin_chat_app/view/app_header.dart';
 import 'package:web_admin_chat_app/widgets/app_buttons.dart';
+import 'package:web_admin_chat_app/widgets/app_dropdown.dart';
 
 
 
@@ -75,7 +76,7 @@ class AddSignalsImages extends StatelessWidget {
                                                                     null &&
                                                                 _.pictureController3 !=
                                                                     ''?  const InkWell(child: Text('Click to preview'),):Container(),
-                                const SizedBox(height: 70),
+                               
                                  Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
