@@ -21,7 +21,7 @@ class DashBoard extends StatelessWidget {
             backgroundColor: AppColors.backgroundcolor,
             body: _.isLoading
                 ? Center(
-                    child: Container(
+                    child: SizedBox(
                       height: 100,
                       width: 100,
                       child: Center(
@@ -104,7 +104,7 @@ class DashBoard extends StatelessWidget {
     return Container(
       width: Get.width / 6,
       height: Get.height / 5,
-      decoration: BoxDecoration(
+      decoration:const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Padding(
@@ -115,14 +115,14 @@ class DashBoard extends StatelessWidget {
           children: [
             Text(
               title,
-              style:  TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Colors.black),
+              style:const  TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Colors.black),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Text(
               stats,
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
+              style:const TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
             )
           ],
         ),

@@ -50,6 +50,7 @@ dependencies:
   google_fonts: ^2.2.0
   intl: ^0.17.0
   data_table_2: ^2.2.0
+  circular_profile_avatar: ^2.0.5
 
 dev_dependencies:
   flutter_test:
