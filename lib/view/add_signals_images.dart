@@ -91,12 +91,12 @@ class AddSignalsImages extends StatelessWidget {
                             borderColor: Colors.white,
                             backgroundColor: Colors.grey.shade50,
                             errorWidget: (context, url, error) =>const Icon(
-                              Icons.person,
+                              Icons.add_a_photo,
                               color: Colors.grey,
                               size: 25.0,
                             ),
                             placeHolder: (context, url) =>const Icon(
-                              Icons.person,
+                              Icons.add_a_photo,
                               color: Colors.grey,
                               size: 25.0,
                             ),

@@ -15,37 +15,33 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
-
- 
-
-
-
     return GetBuilder<LogInController>(
       init: LogInController(),
-      builder: (_){
+      builder: (_) {
         return SafeArea(
-            child: Scaffold(
-              backgroundColor: const Color(0xffE5E5E5),
-              body: Center(
-                child: _.isLoading
-                    ? SizedBox(
-                        height: 100,
-                        width: 100,
-                        child: Center(
-                          child: LoadingAnimationWidget.inkDrop(
-                            color: AppColors.bluecolor,
-                            size: 50,
-                          ),
+          child: Scaffold(
+            backgroundColor: const Color(0xffE5E5E5),
+            body: Center(
+              child: _.isLoading
+                  ? SizedBox(
+                      height: 100,
+                      width: 100,
+                      child: Center(
+                        child: LoadingAnimationWidget.inkDrop(
+                          color: AppColors.bluecolor,
+                          size: 50,
                         ),
-                      )
-                    : Container(
+                      ),
+                    )
+                  : Container(
                       height: Get.height,
                       width: Get.width,
-                      decoration: const BoxDecoration(image:DecorationImage(image: AssetImage('assets/images/bg.jpg'),fit: BoxFit.cover)),
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/bg.jpg'),
+                              fit: BoxFit.cover)),
                       child: SingleChildScrollView(
                         child: Card(
-                          
                           shadowColor: Colors.grey,
                           elevation: 10,
                           color: Colors.white,
@@ -53,8 +49,6 @@ class Login extends StatelessWidget {
                             key: _.formkey,
                             child: Column(
                               children: [
-                               
-                               
                                 GestureDetector(
                                   onLongPress: () {
                                     _.createAccount();
@@ -66,18 +60,16 @@ class Login extends StatelessWidget {
                                     child: Image.asset(
                                       'assets/images/side_menu_logo.png',
                                       height: 70,
-                                      
                                     ),
                                   ),
                                 ),
-                                 Text(
+                                Text(
                                   'WELCOME TO Admin Panel',
                                   style: GoogleFonts.mochiyPopOne(
                                       fontSize: 30,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.black),
                                 ),
-                               
                                 Text(
                                   'Log In',
                                   style: GoogleFonts.mochiyPopOne(
@@ -110,7 +102,6 @@ class Login extends StatelessWidget {
                                 const SizedBox(
                                   height: 30,
                                 ),
-                               
                                 Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 39),
@@ -135,8 +126,7 @@ class Login extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       const SizedBox(
                                         width: 40,
@@ -171,14 +161,12 @@ class Login extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     CircularButtons(
-                                      backgroundColor:
-                                          const Color(0xfffc6359),
+                                      backgroundColor: const Color(0xfffc6359),
                                       borderColor: const Color(0xfffc6359),
                                       text: "Log In",
                                       height: 50,
-                                      width:
-                                          MediaQuery.of(context).size.width *
-                                              0.2,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
                                       onPressed: () {
                                         _.getLogin();
                                       },
@@ -195,12 +183,13 @@ class Login extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ).marginSymmetric(horizontal: 360,vertical: 60),
+                        ).marginSymmetric(horizontal: 360, vertical: 60),
                       ),
                     ),
-              ),
             ),
-          );
-      },);
+          ),
+        );
+      },
+    );
   }
 }

@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_is_empty
 
-
 import 'package:data_table_2/paginated_data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -14,11 +13,8 @@ import 'package:web_admin_chat_app/view/app_header.dart';
 import 'package:web_admin_chat_app/widgets/app_textfield.dart';
 
 class AdminData extends StatelessWidget {
- 
-
   @override
   Widget build(BuildContext context) {
-  
     return GetBuilder<AdminDataController>(
       init: AdminDataController(),
       builder: (_) {
@@ -27,44 +23,41 @@ class AdminData extends StatelessWidget {
           body: ListView(
             children: [
               Header(),
-               Row(
-                            children:const [
-                               Padding(
-                                padding: EdgeInsets.only(right: 20),
-                                child: Text(
-                                  'Admin List',
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.w700),
-                                ),
-                              ),
-                              Expanded(
-                                child: Divider(
-                                  color: Colors.red,
-                                ),
-                              ),
-                            ],
-                          ),
+              Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: Text(
+                      'Admin List',
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    
                     const Spacer(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.2,
                       child: CommonTextFormField(_.search, 'Search by Email',
                           'Search', false, TextInputType.name, 1, (e) {
                         _.searchFunction(e);
-                      }, (){}),
+                      }, () {}),
                     ),
                     const SizedBox(
                       width: 10.0,
                     ),
-                    
                   ],
                 ),
               ),
@@ -87,7 +80,10 @@ class AdminData extends StatelessWidget {
                         child: SizedBox(
                           height: MediaQuery.of(context).size.height * 0.75,
                           child: DataTable2(
-                            dataTextStyle:  const TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black),
+                            dataTextStyle: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black),
                             sortAscending: true,
                             dividerThickness: 2,
                             dataRowHeight: 60,
@@ -98,19 +94,29 @@ class AdminData extends StatelessWidget {
                                 label: Text('Name',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-    fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primarycolor)
-                                    ),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.primarycolor)),
                               ),
                               DataColumn2(
                                 label: Center(
-                                    child: Text('Email',style: TextStyle(
-    fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primarycolor), )),
+                                    child: Text(
+                                  'Email',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.primarycolor),
+                                )),
                               ),
                               DataColumn2(
                                 label: Center(
-                                    child:
-                                        Text('Actions',style: TextStyle(
-    fontSize: 20, fontWeight: FontWeight.w600, color: AppColors.primarycolor), )),
+                                    child: Text(
+                                  'Actions',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColors.primarycolor),
+                                )),
                               ),
                             ],
                             rows: List.generate(
@@ -121,7 +127,6 @@ class AdminData extends StatelessWidget {
                                 DataCell(
                                   Row(
                                     children: [
-                                     
                                       const SizedBox(
                                         width: 10,
                                       ),
@@ -154,7 +159,6 @@ class AdminData extends StatelessWidget {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                     
                                       const SizedBox(
                                         width: 5,
                                       ),
@@ -173,8 +177,7 @@ class AdminData extends StatelessWidget {
                                           onPressed: () {
                                             _.searchlist.length == 0
                                                 ? _.deleteuser(
-                                                    _.adminlist[index]
-                                                        ['uid'])
+                                                    _.adminlist[index]['uid'])
                                                 : _.deleteuser(
                                                     _.searchlist[index]['uid']);
                                           },
@@ -195,6 +198,4 @@ class AdminData extends StatelessWidget {
       },
     );
   }
-
- 
 }

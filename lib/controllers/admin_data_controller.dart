@@ -36,14 +36,15 @@ class AdminDataController extends GetxController {
     adminlist.forEach((e) {
       if (e['email'].toString().toLowerCase().contains(v.toLowerCase())) {
         searchlist.add(e);
-      }
-       else if (e['firstName'].toString().toLowerCase().contains(v.toLowerCase())) {
+      } else if (e['firstName']
+          .toString()
+          .toLowerCase()
+          .contains(v.toLowerCase())) {
+        searchlist.add(e);
+      } else if (e['uid'].toString().toLowerCase().contains(v.toLowerCase())) {
         searchlist.add(e);
       }
-       else if (e['uid'].toString().toLowerCase().contains(v.toLowerCase())) {
-        searchlist.add(e);
-      }
-      
+
       update();
     });
   }
@@ -57,29 +58,23 @@ class AdminDataController extends GetxController {
         adminlist.add(v.data());
       });
       update();
-
-   
     } on FirebaseException catch (e) {
       CommonSnackbar.getSnackbar('Error', e.message.toString(), Colors.red);
     }
   }
 
-
   Future<void> updateuser(String id) async {
-    await ApiData.admin
-        .doc(id)
-        .update({'firstName': firstname.text, 'email': email.text}).then(
-            (value) async {
-          isLoading = true;
-          update();
-          await getData();
-          isLoading = false;
-          update();
-          CommonSnackbar.getSnackbar(
-              'Success', 'Data Delete Successfully', Colors.green);
-        });
+    await ApiData.admin.doc(id).update(
+        {'firstName': firstname.text, 'email': email.text}).then((value) async {
+      isLoading = true;
+      update();
+      await getData();
+      isLoading = false;
+      update();
+      CommonSnackbar.getSnackbar(
+          'Success', 'Data Delete Successfully', Colors.green);
+    });
   }
-
 
   void deleteuser(String id) {
     ApiData.admin.doc(id).delete().then((value) async {
