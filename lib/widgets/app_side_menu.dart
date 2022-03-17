@@ -91,7 +91,7 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                         onTap: () {
                           _.page.jumpToPage(1);
                         },
-                        icon: FontAwesomeIcons.user,
+                        icon: FontAwesomeIcons.fileImage,
                       ),
                       SideMenuItem(
                         priority: 2,
@@ -99,31 +99,29 @@ class _SideBarState extends State<SideBar> with AutomaticKeepAliveClientMixin {
                         onTap: () {
                           _.page.jumpToPage(2);
                         },
-                        icon: FontAwesomeIcons.user,
+                        icon: Icons.update,
                       ),
                       SideMenuItem(
-                        priority: 3,
-                        title: 'Users',
-                        onTap: () {
-                          _.page.jumpToPage(3);
-                        },
-                        icon: FontAwesomeIcons.columns,
-                      ),
+                          priority: 3,
+                          title: 'Users',
+                          onTap: () {
+                            _.page.jumpToPage(3);
+                          },
+                          icon: Icons.person_add),
                       SideMenuItem(
-                        priority: 4,
-                        title: 'Admin',
-                        onTap: () {
-                          _.page.jumpToPage(4);
-                        },
-                        icon: FontAwesomeIcons.columns,
-                      ),
+                          priority: 4,
+                          title: 'Admin',
+                          onTap: () {
+                            _.page.jumpToPage(4);
+                          },
+                          icon: Icons.person),
                       SideMenuItem(
                         priority: 5,
                         title: 'Signal Images',
                         onTap: () {
                           _.page.jumpToPage(5);
                         },
-                        icon: FontAwesomeIcons.columns,
+                        icon: Icons.image,
                       ),
                     ]),
               ),

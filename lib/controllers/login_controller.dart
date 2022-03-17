@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -17,26 +16,26 @@ class LogInController extends GetxController {
   bool obscurePassword = true;
   bool isLoading = true;
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
-   final storage = GetStorage();
-   SharedPreferences? prefs;
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final storage = GetStorage();
+  SharedPreferences? prefs;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
   @override
   void onInit() {
     super.onInit();
   }
 
-   void changeObscurePassword() {
+  void changeObscurePassword() {
     obscurePassword = !obscurePassword;
     update();
   }
 
   @override
-  void onReady()async {
+  void onReady() async {
     isLoading = false;
-     prefs = await SharedPreferences.getInstance();
+    prefs = await SharedPreferences.getInstance();
     await getRememberMeUser();
-    
+
     update();
     super.onReady();
   }
@@ -55,7 +54,6 @@ class LogInController extends GetxController {
           .then((result) async {
         var user = firebaseAuth.currentUser;
         if (user!.emailVerified) {
-         
           Get.offAllNamed(Routes.sideBarRoutes);
         } else {
           await user.sendEmailVerification();
@@ -78,7 +76,6 @@ class LogInController extends GetxController {
     }
   }
 
-
   Future<void> getRememberMeUser() async {
     if (prefs != null) {
       email.text = prefs!.getString('email') ?? '';
@@ -93,15 +90,15 @@ class LogInController extends GetxController {
     try {
       ApiData.firebaseAuth
           .createUserWithEmailAndPassword(
-              email: 'wajahatali333460@gmail.com', password: '123456')
+              email: 'admin@dominateforex.info', password: '123456')
           .then((result) async {
         var user = result.user!;
         await user.sendEmailVerification();
         await ApiData.admin.doc(result.user!.uid).set({
           'uid': result.user!.uid,
-          'firstName': 'Moeez',
-          'lastName': 'Suleman',
-          'email': 'wajahatali333460@gmail.com',
+          'firstName': 'Dominate',
+          'lastName': 'Admin',
+          'email': 'admin@dominateforex.info',
           'atrole': 'admin',
           'role': 'SuperAdmin',
           'createdAt': Timestamp.now(),
@@ -121,9 +118,9 @@ class LogInController extends GetxController {
           title: 'Error',
           message: q.message.toString(),
           backgroundColor: Colors.white);
-      
+
       // CommonSnackbar.getSnackbar('Error', q.message.toString(), Colors.red);
-      
+
     } on FirebaseException catch (e) {
       isLoading = false;
       update();
@@ -188,6 +185,5 @@ class LogInController extends GetxController {
       isLoading = false;
       update();
     }
-   
   }
 }
